@@ -19,22 +19,18 @@ The web page's width and length you designed must be positive integers
 */
 
 class constructRectangle {
-    public int[] constructRectangle(int area) {
-        
-        int[] tuple = new int[2];
-        int a,b;
-        
-        a = (int)Math.sqrt(area);
-        while(area/a == 0){
+   public int[] constructRectangle(int area) {
+        int[] result = new int[2];
+        if(area == 0){
+            return result;
+        }
+        int a = (int)Math.sqrt(area);
+        while(area%a != 0){
             a--;
         }
-        
-        b = area/a;
-        
-        tuple[0] = a;
-        tuple[1] = b;
-        
-        return tuple;
-        
+        int b = area/a;
+        result[0] = b;
+        result[1] = a;
+        return result;
     }
 }
